@@ -1,0 +1,13 @@
+services:
+  teleprompter:
+    build: .
+    image: safe-harbor-prompter:latest
+    container_name: prompter-node
+    ports:
+      - "80:8080" # Map host port 80 to container port 8080
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: 128M
